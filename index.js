@@ -61,7 +61,7 @@ app.post("/login", (req,res) => {
   if (authenticatedUser(username,password)) {
     let accessToken = jwt.sign({
       data: password
-    }, 'access', { expiresIn: 60 * 60 });
+    }, 'access', { expiresIn: 60 });
 
     req.session.authorization = {
       accessToken,username
@@ -88,7 +88,7 @@ app.post("/register", (req,res) => {
 });
 
 
-const PORT =5000;
+const PORT =5005;
 
 app.use("/friends", routes);
 
